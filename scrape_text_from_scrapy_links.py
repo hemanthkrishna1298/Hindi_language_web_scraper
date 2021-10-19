@@ -2,7 +2,7 @@ import json
 import scrape_text
 import os
 
-with open('vikaspedia_agri_bengali_links_updated.json', 'r') as fp:
+with open('netinbag_finance_hindi_links.json', 'r') as fp:
     data = json.load(fp)
 links = []
 for item in data:
@@ -23,7 +23,8 @@ for link in links:
     if(flag):
         link_exceptions.append(link)    
     i+=1
-with open(os.path.join('exceptionlinks_VIKASPEDIA_AGRI_BENGALI.txt'), 'a') as f:
+
+with open(os.path.join('exceptionlinks_NETINBAG_FIN_HINDI.txt'), 'a') as f:
     for exceptionlink in link_exceptions:
         f.write(exceptionlink)
         f.write('\n')

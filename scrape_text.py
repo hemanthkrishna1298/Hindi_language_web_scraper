@@ -18,7 +18,6 @@ def para_scraper(relevant_content):
     scraped_text_list = []
     for para in relevant_content.find_all('p'):
         scraped_text = para.get_text()
-        scraped_text = ignore_english(scraped_text)
         if(len(scraped_text)>0):
             scraped_text_list.append(scraped_text)
         scraped_text = ""
@@ -47,10 +46,10 @@ def scrape_text(counter, link):
         soup = BeautifulSoup(source, "lxml")
         # print(soup.prettify)
         #scraped_text_list = []
-        if(soup.body.find('h3', class_="folder_heading")):
-            print("not an article!" + str(counter))
-            return 1
-        relevant_content = soup.body.find('div', id="texttospeak")
+        # if(soup.body.find('h3', class_="folder_heading")):
+        #     print("not an article!" + str(counter))
+        #     return 1
+        relevant_content = soup.body.find('article', id="fullArticle")
         # if(relevant_content==None):
             # relevant_content = soup.body.find('div', class_="article-para")
 
@@ -64,11 +63,11 @@ def scrape_text(counter, link):
         #     scraped_text = ignore_english(scraped_text)
         
         
-        scraped_text = relevant_content.get_text()
-        # scraped_text = para_scraper(relevant_content)
+        # scraped_text = relevant_content.get_text()
+        scraped_text = para_scraper(relevant_content)
             # print(scraped_text)
 
-        with open(os.path.join('vikaspedia_scraped_text_AGRI_BENGALI', 'vp_extracted_file_agri_bn'+str(counter)+'.json'), 'w', encoding='utf-8') as f: 
+        with open(os.path.join('netinbag_scraped_text_FIN_HIN', 'nb_extracted_file_fin_hi'+str(counter)+'.json'), 'w', encoding='utf-8') as f: 
             json.dump({'link':link, 'text':scraped_text}, f, ensure_ascii=False)
 
         # with open(os.path.join('savetext', str(link)), 'w', encoding='utf-8') as f:

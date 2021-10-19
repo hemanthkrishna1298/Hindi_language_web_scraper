@@ -1,3 +1,4 @@
+import pickle
 import openpyxl
 import webbrowser
 from importlib import reload
@@ -23,18 +24,23 @@ class DataScraperFromLinks():
         This function collects links from an excel spreadsheet and appends them to a Python list. Then it groups links from same websites together, so that you can go through each website, write the scraper function for it, and then collect text from all links of the same website together.
         """
         # Collecting all links from the excel sheet and sorting them to group same website's links together
-        my_workbook = openpyxl.load_workbook(excel_filename)
-        for sheet in my_workbook.sheetnames:
-            worksheet = my_workbook[sheet]
-            for row in worksheet.iter_rows(min_col=5):
-                for cell in row:
-                    try:
-                        link = cell.hyperlink.target
-                    except:
-                        link = None
-                    if(link is not None):
-                        self.list_of_links.append(link)
-        print(f"The number of links collected is {len(self.list_of_links)}.")
+        # my_workbook = openpyxl.load_workbook(excel_filename)
+        # for sheet in my_workbook.sheetnames:
+        #     worksheet = my_workbook[sheet]
+        #     for row in worksheet.iter_rows(min_col=5):
+        #         for cell in row:
+        #             try:
+        #                 link = cell.hyperlink.target
+        #             except:
+        #                 link = None
+        #             if(link is not None):
+        #                 self.list_of_links.append(link)
+        # print(f"The number of links collected is {len(self.list_of_links)}.")
+
+        ## temporary  code
+        with open('finance_list_of_links', 'rb') as fp:
+            self.list_of_links = pickle.load(fp)
+
         self.list_of_links.sort(key= self.list_of_links_sorting_utility)
         
         # Making a dictionary of websites with key value pairs such that the name of website is key and the number of links from that website is value
