@@ -10,4 +10,3 @@ manual_collection_scraping/manual_coll_text_files/
 __pycache__/
 API_SCRAPER/
 *.json
-
