@@ -1,7 +1,4 @@
 .DS_Store
-finance_domain_text_files/
-general_domain_text_files/
-savetext/
 stats_for_each_file_in_each_domain/
 vikaspedia_scraped_text_AGRI_BENGALI/
 vikaspedia_scraped_text_HEALTH_HINDI/
@@ -9,6 +6,7 @@ vikaspedia_scraped_text_HINDI_AGRI/
 HINDI_AGRI1_HEMANTHA.xlsx
 HINDI-HEMANTHA.xlsx
 scrape_data.ipynb
-agriculture_domain_text_files/
+manual_collection_scraping/manual_coll_text_files/
 __pycache__/
 API_SCRAPER/
+*.json
