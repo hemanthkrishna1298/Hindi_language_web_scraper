@@ -43,7 +43,12 @@ for filename in os.listdir('general_domain_text_files'):
             count += 1
             local_dictionary_of_hindi_words.update({each_word : count})
         prev_word = each_word
-    global_dictionary_of_hindi_words.update(local_dictionary_of_hindi_words)
+    
+    for word, count in local_dictionary_of_hindi_words.items():
+        if word in global_dictionary_of_hindi_words:
+            global_dictionary_of_hindi_words[word] +=count
+        else:
+            global_dictionary_of_hindi_words.update({word : count})
 
     csv_writer1.writerow([filename, link, num_of_words_in_file, num_of_sentences_in_file])
 
