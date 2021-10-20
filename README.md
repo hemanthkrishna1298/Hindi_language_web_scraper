@@ -4,7 +4,7 @@ This repository contains code for various scraping algorithms used for collectin
 
 Each of the folders contains Python scripts for the particular method used and the text files:
 
-- ***manual_collection_scraping*** : Text from links that were collected manually and then scraped using the scrape_text.py script.
-- ***scrapy_collection_scraping*** : Text from links that were collected using the [Scrapy](https://scrapy.org/) framework, and then scraped using the scrape_text.py script.
+- ***manual_collection_scraping*** : Code for extracting text from links that were collected manually and then scraped using the scrape_text.py script.
+- ***scrapy_collection_scraping*** : Code for extracting text from links that were collected using the [Scrapy](https://scrapy.org/) framework, and then scraped using the scrape_text.py script.
 
 ***text_statistics_saving*** contains scripts for counting the number of words, number of sentences collected, frequency of each word, and other such statistics.
