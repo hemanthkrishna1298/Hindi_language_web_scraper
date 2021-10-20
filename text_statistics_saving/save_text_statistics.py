@@ -9,12 +9,12 @@ global_number_of_sentences = 0
 
 
 # count number of unique words, store frequency of each unique word as dict
-csv_file1 = open(os.path.join('stats_for_each_file_in_each_domain', 'stats_for_each_file_in_general', "num_words_sentences_in_each_file.csv"), 'w', encoding='utf-8')
+csv_file1 = open(os.path.join('stats_for_each_file_in_each_domain', 'stats_for_each_file_in_agriculture', "num_words_sentences_in_each_file.csv"), 'w', encoding='utf-8')
 csv_writer1 = csv.writer(csv_file1)
 csv_writer1.writerow(['Filename', 'Link', 'Number of Words', 'Number of Sentences'])
 
-for filename in os.listdir('general_domain_text_files'):
-    with open(os.path.join('general_domain_text_files', filename), 'r', encoding='utf-8') as fp:
+for filename in os.listdir('agriculture_domain_text_files'):
+    with open(os.path.join('agriculture_domain_text_files', filename), 'r', encoding='utf-8') as fp:
         data = json.load(fp)
     link = data["link"]
     scraped_text = data["text"]
@@ -54,12 +54,12 @@ for filename in os.listdir('general_domain_text_files'):
 
 csv_file1.close()
 
-csv_file2 = open(os.path.join('stats_for_each_file_in_each_domain', 'stats_for_each_file_in_general', "total_words_and_sentences_in_gen.csv"), 'w', encoding='utf-8')
+csv_file2 = open(os.path.join('stats_for_each_file_in_each_domain', 'stats_for_each_file_in_agriculture', "total_words_and_sentences_in_agri.csv"), 'w', encoding='utf-8')
 csv_writer2 = csv.writer(csv_file2)
 csv_writer2.writerow(['Domain name', 'Total words', 'Total sentences'])
-csv_writer2.writerow(['General', global_number_of_words, global_number_of_sentences])
+csv_writer2.writerow(['Agriculture', global_number_of_words, global_number_of_sentences])
 
-csv_file3 = open(os.path.join('stats_for_each_file_in_each_domain', 'stats_for_each_file_in_general', "word_frequencies.csv"), 'w', encoding='utf-8')
+csv_file3 = open(os.path.join('stats_for_each_file_in_each_domain', 'stats_for_each_file_in_agriculture', "word_frequencies.csv"), 'w', encoding='utf-8')
 csv_writer3 = csv.writer(csv_file3)
 csv_writer3.writerow(['Word', 'Frequency'])
 for word, frequency in global_dictionary_of_hindi_words.items():
